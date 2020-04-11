@@ -48,7 +48,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = openOrCreateDatabase("transactions.db", Context.MODE_PRIVATE,null);
-//        db.execSQL("CREATE TABLE Products (ProductID int NOT NULL PRIMARY KEY, ProductName TEXT, Price double, Quantity double)");
+        db.execSQL("CREATE TABLE \"Transactions\" (\n" +
+                "\t\"Transaction ID\"\tINTEGER NOT NULL,\n" +
+                "\t\"Date\"\tTEXT,\n" +
+                "\t\"Amount\"\tNUMERIC,\n" +
+                "\t\"NewBalance\"\tNUMERIC,\n" +
+                "\t\"Category\"\tTEXT,\n" +
+                "\t\"DeptWith\"\tINTEGER,\n" +
+                "\tPRIMARY KEY(\"Transaction ID\")\n" +
+                ")");
 
         AddDeposit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        
+
     }
 }
